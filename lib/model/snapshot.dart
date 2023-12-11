@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:hardik_2048/controller/game_controller.dart';
 
 import 'boardcell.dart';
 
@@ -72,7 +73,7 @@ class Snapshot {
 
   void _printBoard(List<List<BoardCell>> boardCells) {
     try {
-      print("### snapshot ------------");
+      print("### snapshot ------------ ⏳${Get.find<GameController>().timer.value}⌛");
       print("${cells[0][0].number} ${cells[0][1].number} ${cells[0][2].number} ${cells[0][3].number}");
       print("${cells[1][0].number} ${cells[1][1].number} ${cells[1][2].number} ${cells[1][3].number}");
       print("${cells[2][0].number} ${cells[2][1].number} ${cells[2][2].number} ${cells[2][3].number}");

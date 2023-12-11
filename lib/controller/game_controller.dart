@@ -236,6 +236,9 @@ class GameController extends GetxController {
     var top = canMoveUp();
     var down = canMoveDown();
     isGameOver.value = (left || right || top || down) == false;
+    if(isGameOver.isTrue){
+      stopTimer();
+    }
     isGameOver.refresh();
     print("is game over? ${isGameOver.value}");
   }
@@ -360,8 +363,6 @@ class GameController extends GetxController {
   void startTimer() {
     if (timer.value == _defaultInitialTimerValue && !_hasTimerStarted) {
       _hasTimerStarted = true;
-      print(
-          ' startTimer() startTimer()startTimer() startTimer()  startTimer()');
       _timerObj = Timer.periodic(const Duration(seconds: 1), (_) {
         timer.value = (int.parse(timer.value) + 1).toString();
       });
